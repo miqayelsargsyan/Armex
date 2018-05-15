@@ -14,8 +14,9 @@ app.post('/api/addGoods', (req, res) => {
     addGoods(req, res)
 })
 
+
 app.get('/api/getAllGoods', (req, res) => {
-    getAllGoods(res)
+    getAllGoods(req, res)
 })
 
 app.patch('/api/changeCount/:id', (req, res) => {
