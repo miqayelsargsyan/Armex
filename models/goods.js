@@ -33,16 +33,15 @@ let goodsSchema = new mongoose.Schema({
     popularity: {
         type: Number
     },
-    sale: [{
-        isSale: Boolean,
-        new_price: {
-            type: Number
-        },
-        img: {
-            type: String,
-            default: ''
-        }
-    }]
+    isSale: {
+        type: Boolean
+    },
+    saleImage: {
+        type: String
+    },
+    newPrice: {
+        type: Number
+    }
 })
 
 let Goods = mongoose.model('Goods', goodsSchema );

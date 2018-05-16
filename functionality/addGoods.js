@@ -18,7 +18,7 @@ let addGoods = (req, res) => {
         for( let i = 0; i < goods.length; ++i){
             if(goods[i].code === req.body.code){
                 return  res.status(400).send('You have already added the same product')
-    }
+            }
         }
     })
 
@@ -33,12 +33,9 @@ let addGoods = (req, res) => {
         count: req.body.count,
         code: req.body.code,
         popularity: req.body.popularity,
-        sale: {
-            isSale: false,
-            new_price: req.body.new_price,
-            img: req.body.img
-        }
-
+        isSale: req.body.isSale,
+        saleImage: req.body.saleImage,
+        newPrice: req.body.newPrice
     }
     
         goods = new Goods(body)

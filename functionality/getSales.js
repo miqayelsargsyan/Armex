@@ -1,8 +1,6 @@
 let {Goods} = require('../models/goods')
 
-let filter = (req, res) => {
-
-    //section of limit and offset
+let getSales = (req, res) => {
     let limit = req.params.limit || 12;
     let offset = req.params.offset || undefined;
     let newOffset;
@@ -31,7 +29,7 @@ let filter = (req, res) => {
 
     if(brand == undefined && type == undefined && price == undefined && popularity == undefined && date == undefined && name == undefined){
         Goods.find().then((goodS) => {
-            Goods.find().limit(Number(limit)).skip(Number(newOffset)).then((goods) => {
+            Goods.find({isSale: true}).limit(Number(limit)).skip(Number(newOffset)).then((goods) => {
                 res.send({
                     next: `/api/getAllGoods/limit=${limit}/offset=${newOffset}`,
                     prev: prevString,
@@ -45,7 +43,11 @@ let filter = (req, res) => {
         })  
     } else {
         Goods.find().then((goodS) => {
-            Goods.find({$or: [{brand: brand}, {type: type}, {price: price}, {popularity: popularity}, {createdAt: date}, {name: name}]}).limit(Number(limit)).skip(Number(newOffset)).then((goods) => {
+            Goods.find({$or: [{brand: brand}, {type: type}, {price: price}, {popularity: popularity}, {createdAt: date}, {name: name}], isSale: true}).limit(Number(limit)).skip(Number(newOffset)).then((goods) => {
+                if(goods.isSale == false){
+                    return res.send('There are no goods statisfying to you filter')
+                } 
+
                 res.send({
                     next: `/api/getAllGoods/limit=${limit}/offset=${newOffset}/brand=${brand}/type=${type}/price=${price}/popularity=${popularity}/date=${date}/name=${name}`,
                     prev: prevString,
@@ -61,4 +63,4 @@ let filter = (req, res) => {
 }
 
 
-module.exports = {filter}
+module.exports = {getSales}
