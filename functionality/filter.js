@@ -3,61 +3,53 @@ let {Goods} = require('../models/goods')
 let filter = (req, res) => {
 
     //section of limit and offset
-    let limit = req.params.limit || 12;
-    let offset = req.params.offset || undefined;
-    let newOffset;
-    let prevString;
+    let limit = req.params.limit || 2;
+    let offset = req.params.offset || 0;
+    let prevString = `/api/getAllGoods/`;
+    let nextString =  `/api/getAllGoods/`;
 
-    if(offset === undefined) {
-        offset = 0
-        newOffset = 0
-    } else {
-        newOffset = Number(offset) + Number(limit)
-    }
-
-    if(newOffset === 0) {
+    if(offset == 0) {
         prevString = null
     } else {
-        prevString = `/api/getAllGoods/limit=${limit}/offset=${newOffset - limit}`
+        prevString += `&limit=${limit}&offset=${offset - limit < 0 ? 0 : offset - limit}`
     }
 
-    // Section of finding goods by several parameters
-    let brand = req.params.brand || undefined;
-    let type = req.params.type || undefined;
-    let price = req.params.price || undefined;
-    let popularity = req.params.popularity || undefined;
-    let date = req.params.date || undefined;
-    let name = req.params.name || undefined;
 
-    if(brand == undefined && type == undefined && price == undefined && popularity == undefined && date == undefined && name == undefined){
-        Goods.find().then((goodS) => {
-            Goods.find().limit(Number(limit)).skip(Number(newOffset)).then((goods) => {
+    // Section of filtering goods by several parameters
+    let brand = req.params.brand;
+    let type = req.params.type;
+    let price = req.params.price;
+
+    Goods.find().then((allGoods) => {
+        const allCount = allGoods.length;
+        Goods.find().limit(limit).skip(offset).then((goods) => {
+            //Stugum enq ete verjinnern en next chlni
+            if(offset + limit > goods.length) {
+                nextString = null
+            } else {
+                nextString += `&limit=${limit}&offset=${limit + offset}`
+            }
+    
+            if(brand) {
+                goods = goods.filter(item => item.brand === brand)
+                nextString += `&brand=${brand}`
+                prevString += `&brand=${brand}`
+            }
+            if(type) {
+                goods = goods.filter(item => item.type === type)
+                nextString += `&type=${type}`
+                prevString += `&type=${type}`
+            }
+    
                 res.send({
-                    next: `/api/getAllGoods/limit=${limit}/offset=${newOffset}`,
+                    next: nextString,
                     prev: prevString,
-                    count: goodS.length,
-                    results: [{
-                        resultsCount: goods.length,
-                        goods
-                    }]
-                })
+                    count: allCount,
+                    currentCount: goods.length,
+                    results: goods
             }).catch((e) => {console.log(e)})
         })  
-    } else {
-        Goods.find().then((goodS) => {
-            Goods.find({$or: [{brand: brand}, {type: type}, {price: price}, {popularity: popularity}, {createdAt: date}, {name: name}]}).limit(Number(limit)).skip(Number(newOffset)).then((goods) => {
-                res.send({
-                    next: `/api/getAllGoods/limit=${limit}/offset=${newOffset}/brand=${brand}/type=${type}/price=${price}/popularity=${popularity}/date=${date}/name=${name}`,
-                    prev: prevString,
-                    count: goodS.length,
-                    results: [{
-                        resultsCount: goods.length,
-                        goods
-                    }]
-                })
-            }).catch((e) => {console.log(e)})
-        })  
-    }
+    })
 }
 
 

@@ -14,11 +14,11 @@ app.post('/api/addGoods', (req, res) => {
     addGoods(req, res)
 })
 
-app.get('/api/getGoods/limit=:limit?&offset=:offset?&brand=:brand?&type=:type?&price=:price?&popularity=:popularity?&date=:date?&name=:name?', (req, res) => {
+app.get('/api/getGoods/(&limit=:limit)?(&offset=:offset)?(&brand=:brand)?(&type=:type)?', (req, res) => {
     filter(req, res)
 })
 
-app.get('/api/getSales/limit=:limit?&offset=:offset?&brand=:brand?&type=:type?&price=:price?&popularity=:popularity?&date=:date?&name=:name?', (req, res) => {
+app.get('/api/getSales/limit=:limit?&offset=:offset?&brand=:brand?&type=:type?', (req, res) => {
         getSales(req, res)
 })
 
