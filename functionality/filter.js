@@ -5,8 +5,8 @@ let filter = (req, res) => {
     //section of limit and offset
     let limit = req.params.limit || 2;
     let offset = req.params.offset || 0;
-    let prevString = `/api/getAllGoods/`;
-    let nextString =  `/api/getAllGoods/`;
+    let prevString = '/api/getGoods/';
+    let nextString = '/api/getGoods/';
 
     if(offset == 0 || offset == limit) {
         prevString = null
@@ -14,10 +14,9 @@ let filter = (req, res) => {
         prevString += `&limit=${limit}&offset=${offset - limit < 0 ? 0 : offset - limit}`
     }
 
-
     // Section of filtering goods by several parameters
-    let brand = req.params.brand;
-    let type = req.params.type;
+    let brand = req.params.brand || undefined;
+    let type = req.params.type || undefined;
 
     Goods.find().then((allGoods) => {
         const allCount = allGoods.length;
@@ -46,7 +45,7 @@ let filter = (req, res) => {
                     currentCount: goods.length,
                     results: goods
             })
-        }).catch((e) => {console.log(e)})  
+        })  
     })
 }
 
