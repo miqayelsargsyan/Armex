@@ -21,17 +21,17 @@ let goodsSchema = new mongoose.Schema({
         type: String,
         default: ''
     },
-    characteristics: {
-        type: String
-    },
+    characteristics: [
+        {
+            title: String,
+            value: String
+        }
+    ],
     count: {
         type: Number
     },
     code: {
         type: String
-    },
-    popularity: {
-        type: Number
     },
     isSale: {
         type: Boolean

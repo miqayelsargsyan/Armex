@@ -10,19 +10,19 @@ let port = process.env.PORT || 3000;
 let app = express();
 app.use(bodyParser.json());
 
-app.post('/api/addGoods', (req, res) => {
+app.post('/api/v1/addGoods', (req, res) => {
     addGoods(req, res)
 })
 
-app.get('/api/getGoods/(&limit=:limit)?(&offset=:offset)?(&brand=:brand)?(&type=:type)?', (req, res) => {
+app.get('/api/v1/getGoods/(&limit=:limit)?(&offset=:offset)?(&brand=:brand)?(&type=:type)?(&priceFrom=:priceFrom)?(&priceTo=:priceTo)?', (req, res) => {
     filter(req, res)
 })
 
-app.get('/api/getSales/limit=:limit?&offset=:offset?&brand=:brand?&type=:type?', (req, res) => {
+app.get('/api/v1/getSales/limit=:limit?&offset=:offset?&brand=:brand?&type=:type?', (req, res) => {
         getSales(req, res)
 })
 
-app.patch('/api/changeCount/:id', (req, res) => {
+app.patch('/api/v1/changeCount/:id', (req, res) => {
     changeCount(req, res)
 })
 
