@@ -11,8 +11,7 @@ let goodsSchema = new mongoose.Schema({
         type: Number
     },
     createdAt: {
-        type: String,
-        default: ""
+        type: Date
     },
     name: {
         type: String

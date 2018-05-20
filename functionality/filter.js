@@ -5,8 +5,8 @@ let filter = (req, res) => {
     //section of limit and offset
     let limit = req.params.limit || 2;
     let offset = req.params.offset || 0;
-    let prevString = '/api/getGoods/';
-    let nextString = '/api/getGoods/';
+    let prevString = '/api/v1/getGoods/';
+    let nextString = '/api/v1/getGoods/';
 
     if(offset == 0 || offset == limit) {
         prevString = null
@@ -19,10 +19,12 @@ let filter = (req, res) => {
     let type = req.params.type || undefined;
     let priceFrom = req.params.priceFrom || undefined;
     let priceTo = req.params.priceTo || undefined;
-
+    let sort = req.params.sortBy || undefined;
+    let sortType = req.params.sortType || undefined;
+    
     Goods.find().then((allGoods) => {
         const allCount = allGoods.length;
-        Goods.find().limit(Number(limit)).skip(Number(offset)).then((goods) => {
+        Goods.find().limit(Number(limit)).skip(Number(offset)).sort({[sort]: sortType}).then((goods) => {
             //Stugum enq ete verjinnern en next chlni
             if(offset + limit > goods.length) {
                 nextString = null

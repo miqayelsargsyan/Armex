@@ -3,16 +3,6 @@ let {Goods} = require('../models/goods')
 let body;
 let goods;
 
-    let currentdate = new Date(); 
-    let datetime = currentdate.getDate() + "/"
-                + (currentdate.getMonth()+1)  + "/"
-                + currentdate.getFullYear() + " "
-                + currentdate.getHours() +  ":"
-                + currentdate.getMinutes() + ":"
-                + currentdate.getSeconds();
-
-
-
 let addGoods = (req, res) => { 
     Goods.find().then((goods) => {
         for( let i = 0; i < goods.length; ++i){
@@ -27,7 +17,7 @@ let addGoods = (req, res) => {
         name: req.body.name,
         type: req.body.type,
         price: req.body.price,
-        createdAt: datetime,
+        createdAt: new Date(),
         image: req.body.image,
         characteristics: req.body.characteristics,
         count: req.body.count,
