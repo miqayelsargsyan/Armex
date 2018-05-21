@@ -5,13 +5,18 @@ const {addGoods} = require('./functionality/addGoods')
 const {filter} = require('./functionality/filter')
 const {changeCount} = require('./functionality/changeCount')
 const {getSales} = require('./functionality/getSales')
-const {Goods} = require('./models/goods')
+const {orderGoods} = require('./functionality/order')
+
 let port = process.env.PORT || 3000;
 let app = express();
 app.use(bodyParser.json());
 
 app.post('/api/v1/addGoods', (req, res) => {
     addGoods(req, res)
+})
+
+app.post('/api/v1/orderGoods', (req, res) => {
+    orderGoods(req, res)
 })
 
 app.get('/api/v1/getGoods/(&limit=:limit)?(&offset=:offset)?(&brand=:brand)?(&type=:type)?(&priceFrom=:priceFrom)?(&priceTo=:priceTo)?(&sortBy=:sortBy)?(&sortType=:sortType)?', (req, res) => {

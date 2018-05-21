@@ -17,7 +17,6 @@ let addGoods = (req, res) => {
         name: req.body.name,
         type: req.body.type,
         price: req.body.price,
-        createdAt: new Date(),
         image: req.body.image,
         characteristics: req.body.characteristics,
         count: req.body.count,
@@ -25,7 +24,8 @@ let addGoods = (req, res) => {
         popularity: req.body.popularity,
         isSale: req.body.isSale,
         saleImage: req.body.saleImage,
-        newPrice: req.body.newPrice
+        newPrice: req.body.newPrice,
+        createdAt: new Date()
     }
     
         goods = new Goods(body)
