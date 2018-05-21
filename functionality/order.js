@@ -9,10 +9,9 @@ let orderGoods = (req, res) => {
         user: req.body.user,
         createdAt: new Date()
     }
-    
 
     let orderObj = new Order(body)
-
+    
     orderObj.save().then((order) => {
         res.send({
             order

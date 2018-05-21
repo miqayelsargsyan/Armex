@@ -3,9 +3,10 @@ const bodyParser = require('body-parser');
 const {mongoose} = require('./mongoose/config')
 const {addGoods} = require('./functionality/addGoods')
 const {filter} = require('./functionality/filter')
-const {changeCount} = require('./functionality/changeCount')
 const {getSales} = require('./functionality/getSales')
 const {orderGoods} = require('./functionality/order')
+const {getOrders} = require('./functionality/getOrders')
+const {changePopularity} = require('./functionality/changePopularity')
 
 let port = process.env.PORT || 3000;
 let app = express();
@@ -23,12 +24,16 @@ app.get('/api/v1/getGoods/(&limit=:limit)?(&offset=:offset)?(&brand=:brand)?(&ty
     filter(req, res)
 })
 
+app.get('/api/v1/getOrders/(&limit=:limit)?(&offset=:offset)?(&brand=:brand)?(&type=:type)?(&priceFrom=:priceFrom)?(&priceTo=:priceTo)?(&sortBy=:sortBy)?(&sortType=:sortType)?', (req, res) => {
+    getOrders(req, res)
+})
+
 app.get('/api/v1/getSales/limit=:limit?&offset=:offset?&brand=:brand?&type=:type?', (req, res) => {
         getSales(req, res)
 })
 
-app.patch('/api/v1/changeCount/:id', (req, res) => {
-    changeCount(req, res)
+app.patch('/api/v1/changePopularity/:id', (req, res) => {
+    changePopularity(req, res)
 })
 
 app.listen(port, () => {

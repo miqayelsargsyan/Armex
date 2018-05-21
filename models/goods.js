@@ -29,6 +29,9 @@ let goodsSchema = new mongoose.Schema({
     count: {
         type: Number
     },
+    popularity: {
+        type: Number
+    },
     code: {
         type: String
     },
