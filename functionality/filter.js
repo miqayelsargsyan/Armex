@@ -19,12 +19,8 @@ let filter = (req, res) => {
     let type = req.params.type || undefined;
     let priceFrom = req.params.priceFrom || undefined;
     let priceTo = req.params.priceTo || undefined;
-    let sortBy = req.params.sortBy || undefined;
-    let sortType = req.params.sortType || undefined;
-
-    if(!brand && !type && !priceFrom && !priceTo && !sortBy && !sortType) {
-        return 1;
-    }
+    let sortBy = req.params.sortBy || 'popularity';
+    let sortType = req.params.sortType || 1;
     
     Goods.find().then((allGoods) => {
         const allCount = allGoods.length;
