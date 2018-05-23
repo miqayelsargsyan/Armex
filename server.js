@@ -8,6 +8,10 @@ const {orderGoods} = require('./functionality/order')
 const {getOrders} = require('./functionality/getOrders')
 const {changePopularity} = require('./functionality/changePopularity')
 const {changeCount} = require('./functionality/changeCount')
+const {logIn} = require('./functionality/logIn')
+const {signUp} = require('./functionality/signUp')
+const {logOut} = require('./functionality/logOut')
+const session = require('express-session')
 
 let port = process.env.PORT || 3000;
 let app = express();
@@ -15,6 +19,18 @@ app.use(bodyParser.json());
 
 app.post('/api/v1/addGoods', (req, res) => {
     addGoods(req, res)
+})
+
+app.post('/api/v1/signUp', (req, res) => {
+    signUp(req, res)
+})
+
+app.post('/api/v1/login', (req, res) => {
+    logIn(req, res)
+})
+
+app.post('/api/v1/logout',(req, res) => {
+    logOut(req, res)
 })
 
 app.post('/api/v1/orderGoods', (req, res) => {
