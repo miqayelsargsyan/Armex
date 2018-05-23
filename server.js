@@ -37,7 +37,7 @@ app.patch('/api/v1/changePopularity/:id', (req, res) => {
     changePopularity(req, res)
 })
 
-app.patch('/api/v1/changeCount/:code', (req, res) => {
+app.post('/api/v1/changeCount/:code', (req, res) => {
     changeCount(req, res)
 })
 

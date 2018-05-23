@@ -10,7 +10,6 @@ let changeCount = (req, res) => {
         Order.find().then((orders) => {
             orders = orders.filter(order => order.items[0].code === code)
             orderCount = orders[0].items[0].count
-            console.log(orderCount)
         }).catch((e) => {console.log(e)})
         Goods.find({code: code}).then((goods) => {
             goodsCount = goods[0].count
