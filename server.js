@@ -7,6 +7,7 @@ const {getSales} = require('./functionality/getSales')
 const {orderGoods} = require('./functionality/order')
 const {getOrders} = require('./functionality/getOrders')
 const {changePopularity} = require('./functionality/changePopularity')
+const {changeCount} = require('./functionality/changeCount')
 
 let port = process.env.PORT || 3000;
 let app = express();
@@ -34,6 +35,10 @@ app.get('/api/v1/getSales/limit=:limit?&offset=:offset?&brand=:brand?&type=:type
 
 app.patch('/api/v1/changePopularity/:id', (req, res) => {
     changePopularity(req, res)
+})
+
+app.patch('/api/v1/changeCount/:code', (req, res) => {
+    changeCount(req, res)
 })
 
 app.listen(port, () => {

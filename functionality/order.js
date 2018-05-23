@@ -1,4 +1,5 @@
 const {Order} = require('../models/order')
+const {Goods} = require('../models/goods')
 
 let orderGoods = (req, res) => {
 
