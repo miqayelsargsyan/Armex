@@ -18,7 +18,7 @@ let adminSchema = new mongoose.Schema({
     },
     tokens: [{
         access: {
-          type: String
+            type: String
         //   required: true
         },
         token: {
@@ -50,7 +50,7 @@ adminSchema.methods.generateAuthToken = function () {
 adminSchema.methods.removeToken = function (token) {
     let admin = this;
   
-    return admin.update({
+    return admin.update({},{
       $pull: {
         tokens: {token}
       }
@@ -58,7 +58,7 @@ adminSchema.methods.removeToken = function (token) {
   };
 
 adminSchema.statics.findByToken = function (token) {
- let admin = this;
+ let Admin = this;
  let decoded;
 
   try {
@@ -66,7 +66,7 @@ adminSchema.statics.findByToken = function (token) {
   } catch(e) {
    return Promise.reject();
   }
-  return admin.findOne({
+  return Admin.findOne({
     '_id': decoded._id,
     'tokens.token': token,
     'tokens.access': 'auth'
@@ -74,8 +74,8 @@ adminSchema.statics.findByToken = function (token) {
 };
 
 adminSchema.statics.findByCredentials = function(login, password) {
-  let admin = this;
-  return admin.findOne({login}).then((admin) => {
+  let Admin = this;
+  return Admin.findOne({login}).then((admin) => {
       if(!admin) {
           return Promise.reject();
       }
@@ -87,7 +87,7 @@ adminSchema.statics.findByCredentials = function(login, password) {
              reject();
          }
      });
-      });
+    });
   })
 };
 

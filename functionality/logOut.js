@@ -1,16 +1,14 @@
 const {Admin} = require('../models/admin')
-let _ = require('lodash')
- 
+let pull = require('array-pull') 
+let token;
+
 let logOut = function(req, res) {
     Admin.find().then((admin) => {
-        let body = _.pick(req.body, 'token');
-        console.log(body.token)
-        admin[0].removeToken(body.token);
-      });
-        return res.status(200).send();
+      token = req.body
+      admin[0].update({$pull: {tokens: token}}).then((adm) => {
+        res.send(adm)
+      })
+    }) 
 }
-
-
-
 
 module.exports = {logOut}

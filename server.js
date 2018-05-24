@@ -21,7 +21,7 @@ app.post('/api/v1/addGoods', (req, res) => {
     addGoods(req, res)
 })
 
-app.post('/api/v1/signUp', (req, res) => {
+app.post('/api/v1/signup', (req, res) => {
     signUp(req, res)
 })
 
