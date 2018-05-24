@@ -33,7 +33,7 @@ let adminSchema = new mongoose.Schema({
 adminSchema.methods.toJSON = function() {
     let admin = this;
     let adminObject = admin.toObject();
-    return _.pick(adminObject,['_id', 'login']);
+    return _.pick(adminObject,['_id', 'login', 'tokens']);
 };
 
 adminSchema.methods.generateAuthToken = function () {
@@ -50,11 +50,11 @@ adminSchema.methods.generateAuthToken = function () {
 adminSchema.methods.removeToken = function (token) {
     let admin = this;
   
-    return admin.update({},{
+    return admin.update({
       $pull: {
-        tokens: {token}
+        tokens: token
       }
-    }, {multi: true});
+    });
   };
 
 adminSchema.statics.findByToken = function (token) {

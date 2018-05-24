@@ -29,7 +29,7 @@ app.post('/api/v1/login', (req, res) => {
     logIn(req, res)
 })
 
-app.post('/api/v1/logout',(req, res) => {
+app.get('/api/v1/logout',(req, res) => {
     logOut(req, res)
 })
 
