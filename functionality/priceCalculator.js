@@ -1,0 +1,1 @@
+const {Goods} = require('../models/goods')

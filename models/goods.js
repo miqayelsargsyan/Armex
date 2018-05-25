@@ -7,9 +7,6 @@ let goodsSchema = new mongoose.Schema({
     type: {
         type: String
     },
-    price: {
-        type: Number
-    },
     createdAt: {
         type: Date
     },
@@ -27,6 +24,15 @@ let goodsSchema = new mongoose.Schema({
         }
     ],
     count: {
+        type: Number
+    },
+    costPrice: {
+        type: Number
+    },
+    wholesale: {
+        type: Number
+    },
+    retail: {
         type: Number
     },
     popularity: {

@@ -16,7 +16,9 @@ let addGoods = (req, res) => {
         brand: req.body.brand,
         name: req.body.name,
         type: req.body.type,
-        price: req.body.price,
+        costPrice: req.body.costPrice,
+        wholesale: req.body.wholesale,
+        retail: req.body.retail,
         image: req.body.image,
         characteristics: req.body.characteristics,
         count: req.body.count,
@@ -27,7 +29,6 @@ let addGoods = (req, res) => {
         newPrice: req.body.newPrice,
         createdAt: new Date()
     }
-    
         goods = new Goods(body)
             goods.save().then((goods) => {
                 res.send(goods);
