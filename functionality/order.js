@@ -1,5 +1,6 @@
 const {Order} = require('../models/order')
 const {Goods} = require('../models/goods')
+const {logger} = require('../logger/logger')
 
 let orderGoods = (req, res) => {
 
@@ -17,7 +18,7 @@ let orderGoods = (req, res) => {
         res.send({
             order
         })
-    })
+    }).catch((e) => logger.debug(e))
 }
 
 module.exports = {orderGoods}

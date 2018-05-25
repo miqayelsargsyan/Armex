@@ -1,4 +1,5 @@
 const {Admin} = require('../models/admin');
+const {logger} = require('../logger/logger')
 const _ = require('lodash');
 
 let logIn = (req, res) => {
@@ -9,6 +10,7 @@ let logIn = (req, res) => {
         });
     }).catch((e) => {
       res.status(400).send('You are not logged in');
+      logger.debug(e)
     });
     
 }

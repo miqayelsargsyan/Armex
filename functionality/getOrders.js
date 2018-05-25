@@ -1,4 +1,5 @@
 let {Order} = require('../models/order')
+const {logger} = require('../logger/logger')
 
 let getOrders = (req, res) => {
     let limit = req.params.limit || 2;
@@ -19,9 +20,11 @@ let getOrders = (req, res) => {
     let priceTo = req.params.priceTo || undefined;
     let sort = req.params.sortBy || undefined;
     let sortType = req.params.sortType || undefined;
+    let allCount;
     
     Order.find().then((allOrders) => {
-        const allCount = allOrders.length;
+         allCount = allOrders.length;
+        })
         Goods.find().limit(Number(limit)).skip(Number(offset)).sort({[sort]: sortType}).then((orders) => {
             //Stugum enq ete verjinnern en next chlni
             if(offset + limit > orders.length) {
@@ -57,8 +60,7 @@ let getOrders = (req, res) => {
                     currentCount: orders.length,
                     results: orders
             })
-        })  
-    })
+        }).catch((e) => logger.debug(e)) 
 }
 
 module.exports = {getOrders}

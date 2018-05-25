@@ -11,7 +11,6 @@ const {changeCount} = require('./functionality/changeCount')
 const {logIn} = require('./functionality/logIn')
 const {signUp} = require('./functionality/signUp')
 const {logOut} = require('./functionality/logOut')
-const session = require('express-session')
 
 let port = process.env.PORT || 3000;
 let app = express();

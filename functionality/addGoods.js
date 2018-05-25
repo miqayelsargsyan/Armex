@@ -1,16 +1,17 @@
 let {Goods} = require('../models/goods')
+const {logger} = require('../logger/logger')
 
 let body;
 let goods;
 
 let addGoods = (req, res) => { 
     Goods.find().then((goods) => {
-        for( let i = 0; i < goods.length; ++i){
+        for( let i = 0; i < goods.length; ++i ){
             if(goods[i].code === req.body.code){
                 return  res.status(400).send('You have already added the same product')
             }
         }
-    })
+    }).catch((e) => {logger.debug(e)})
 
     body = {
         brand: req.body.brand,
@@ -32,7 +33,7 @@ let addGoods = (req, res) => {
         goods = new Goods(body)
             goods.save().then((goods) => {
                 res.send(goods);
-        }).catch((e) => {console.log(e)})
+        }).catch((e) => {logger.debug(e)})
 }
 
 module.exports = {addGoods}

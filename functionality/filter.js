@@ -1,4 +1,5 @@
 let {Goods} = require('../models/goods')
+const {logger} = require('../logger/logger')
 
 let filter = (req, res) => {
 
@@ -22,8 +23,11 @@ let filter = (req, res) => {
     let sortBy = req.params.sortBy || 'popularity';
     let sortType = req.params.sortType || 1;
     
+    let allCount;
+
     Goods.find().then((allGoods) => {
-        const allCount = allGoods.length;
+        allCount = allGoods.length;
+    })
         Goods.find().limit(Number(limit)).skip(Number(offset)).sort({[sortBy]: sortType}).then((goods) => {
             //Stugum enq ete verjinnern en next chlni
             if(offset + limit > goods.length) {
@@ -59,8 +63,7 @@ let filter = (req, res) => {
                     currentCount: goods.length,
                     results: goods
             })
-        })  
-    })
+        }).catch((e) => {logger.debug(e)})
 }
 
 

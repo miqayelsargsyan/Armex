@@ -1,4 +1,5 @@
 const {Admin} = require('../models/admin');
+const {logger} = require('../logger/logger')
 const _ = require('lodash');
 
 
@@ -11,7 +12,7 @@ let signUp = (req, res) => {
         return user.generateAuthToken();
     }).then((token) => {
         res.header('x-auth', token).send(user)
-    }).catch((e) => {res.status(400).send(e)});
+    }).catch((e) => {logger.log(e)});
 }
 
 

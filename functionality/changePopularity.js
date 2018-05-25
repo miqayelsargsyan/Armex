@@ -1,4 +1,5 @@
 let {Goods} = require('../models/goods')
+const {logger} = require('../logger/logger')
 
 let changePopularity = (req, res) => {
 
@@ -9,7 +10,7 @@ let changePopularity = (req, res) => {
                 Goods.findOneAndUpdate({_id: id}, {$set: {popularity: popularity + 1}}, {new: true}).then((goods) => {
                     res.send(goods)
                 })
-        })
+        }).catch((e) => logger.log(e))
 }
 
 module.exports = {changePopularity}
