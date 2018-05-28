@@ -52,10 +52,6 @@ app.patch('/api/v1/changePopularity/:id', (req, res) => {
     changePopularity(req, res)
 })
 
-app.post('/api/v1/changeCount/:code', (req, res) => {
-    changeCount(req, res)
-})
-
 app.listen(port, () => {
     console.log(`The server is up on port ${port}`)
 })
