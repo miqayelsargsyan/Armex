@@ -35,6 +35,9 @@ let goodsSchema = new mongoose.Schema({
     retail: {
         type: Number
     },
+    category: {
+        type: String
+    },
     popularity: {
         type: Number
     },

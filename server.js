@@ -11,12 +11,13 @@ const {changeCount} = require('./functionality/changeCount')
 const {logIn} = require('./functionality/logIn')
 const {signUp} = require('./functionality/signUp')
 const {logOut} = require('./functionality/logOut')
+const {authenticate} = require('./authenticate/authenticate')
 
 let port = process.env.PORT || 3000;
 let app = express();
 app.use(bodyParser.json());
 
-app.post('/api/v1/addGoods', (req, res) => {
+app.post('/api/v1/addGoods', authenticate, (req, res) => {
     addGoods(req, res)
 })
 
@@ -28,7 +29,7 @@ app.post('/api/v1/login', (req, res) => {
     logIn(req, res)
 })
 
-app.get('/api/v1/logout',(req, res) => {
+app.get('/api/v1/logout', authenticate, (req, res) => {
     logOut(req, res)
 })
 
@@ -48,7 +49,7 @@ app.get('/api/v1/getSales/limit=:limit?&offset=:offset?&brand=:brand?&type=:type
         getSales(req, res)
 })
 
-app.patch('/api/v1/changePopularity/:id', (req, res) => {
+app.patch('/api/v1/changePopularity/:id', authenticate, (req, res) => {
     changePopularity(req, res)
 })
 
