@@ -17,6 +17,12 @@ let orderSchema = new mongoose.Schema({
    price: {
        type: Number
    },
+   wholesale: {
+       type: Number
+   },
+   retail: {
+       type: Number
+   },
    totalPirce: {
        type: Number  
    },

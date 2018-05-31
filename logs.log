@@ -1,1 +1,174 @@
 
+[2018-05-31T15:53:18.885] [DEBUG] log - { CastError: Cast to number failed for value "NaN" at path "count"
+    at new CastError (/home/iyc/Documents/Projects/Armex/node_modules/mongoose/lib/error/cast.js:27:11)
+    at SchemaNumber.cast (/home/iyc/Documents/Projects/Armex/node_modules/mongoose/lib/schema/number.js:234:9)
+    at SchemaNumber.SchemaType.applySetters (/home/iyc/Documents/Projects/Armex/node_modules/mongoose/lib/schematype.js:724:12)
+    at SchemaNumber.SchemaType._castForQuery (/home/iyc/Documents/Projects/Armex/node_modules/mongoose/lib/schematype.js:1113:15)
+    at SchemaNumber.castForQuery (/home/iyc/Documents/Projects/Armex/node_modules/mongoose/lib/schema/number.js:285:14)
+    at SchemaNumber.SchemaType.castForQueryWrapper (/home/iyc/Documents/Projects/Armex/node_modules/mongoose/lib/schematype.js:1082:15)
+    at castUpdateVal (/home/iyc/Documents/Projects/Armex/node_modules/mongoose/lib/services/query/castUpdate.js:368:19)
+    at walkUpdatePath (/home/iyc/Documents/Projects/Armex/node_modules/mongoose/lib/services/query/castUpdate.js:240:22)
+    at castUpdate (/home/iyc/Documents/Projects/Armex/node_modules/mongoose/lib/services/query/castUpdate.js:74:18)
+    at model.Query._castUpdate (/home/iyc/Documents/Projects/Armex/node_modules/mongoose/lib/query.js:3185:10)
+    at castDoc (/home/iyc/Documents/Projects/Armex/node_modules/mongoose/lib/query.js:3212:18)
+    at model.Query.Query._findAndModify (/home/iyc/Documents/Projects/Armex/node_modules/mongoose/lib/query.js:2441:19)
+    at model.Query.Query._findOneAndUpdate (/home/iyc/Documents/Projects/Armex/node_modules/mongoose/lib/query.js:2163:8)
+    at process.nextTick (/home/iyc/Documents/Projects/Armex/node_modules/kareem/index.js:315:33)
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+    at process._tickCallback (internal/process/next_tick.js:180:9)
+  message: 'Cast to number failed for value "NaN" at path "count"',
+  name: 'CastError',
+  stringValue: '"NaN"',
+  kind: 'number',
+  value: NaN,
+  path: 'count',
+  reason: undefined }
+[2018-05-31T15:53:18.893] [DEBUG] log - { ValidationError: Order validation failed: createdAt: Cast to Date failed for value ""2018-05-31T11:53:18.866Z"" at path "createdAt"
+    at ValidationError.inspect (/home/iyc/Documents/Projects/Armex/node_modules/mongoose/lib/error/validation.js:56:24)
+    at formatValue (util.js:430:38)
+    at inspect (util.js:324:10)
+    at Object.format (util.js:191:12)
+    at Object.inspect (/home/iyc/Documents/Projects/Armex/node_modules/log4js/lib/layouts.js:36:66)
+    at formatValue (util.js:430:38)
+    at inspect (util.js:324:10)
+    at Object.format (util.js:191:12)
+    at formatLogData (/home/iyc/Documents/Projects/Armex/node_modules/log4js/lib/layouts.js:55:22)
+    at basicLayout (/home/iyc/Documents/Projects/Armex/node_modules/log4js/lib/layouts.js:118:7)
+    at app (/home/iyc/Documents/Projects/Armex/node_modules/log4js/lib/appenders/file.js:55:18)
+    at appenders.forEach (/home/iyc/Documents/Projects/Armex/node_modules/log4js/lib/log4js.js:142:5)
+    at Array.forEach (<anonymous>)
+    at Logger.sendLogEventToAppender [as dispatch] (/home/iyc/Documents/Projects/Armex/node_modules/log4js/lib/log4js.js:141:13)
+    at Logger._log (/home/iyc/Documents/Projects/Armex/node_modules/log4js/lib/logger.js:95:12)
+    at Logger.(anonymous function) [as debug] (/home/iyc/Documents/Projects/Armex/node_modules/log4js/lib/logger.js:127:14)
+  errors: 
+   { createdAt: 
+      { CastError: Cast to Date failed for value ""2018-05-31T11:53:18.866Z"" at path "createdAt"
+    at new CastError (/home/iyc/Documents/Projects/Armex/node_modules/mongoose/lib/error/cast.js:27:11)
+    at model.$set (/home/iyc/Documents/Projects/Armex/node_modules/mongoose/lib/document.js:853:7)
+    at model._handleIndex (/home/iyc/Documents/Projects/Armex/node_modules/mongoose/lib/document.js:674:14)
+    at model.$set (/home/iyc/Documents/Projects/Armex/node_modules/mongoose/lib/document.js:635:22)
+    at model.Document (/home/iyc/Documents/Projects/Armex/node_modules/mongoose/lib/document.js:111:12)
+    at model.Model (/home/iyc/Documents/Projects/Armex/node_modules/mongoose/lib/model.js:63:12)
+    at new model (/home/iyc/Documents/Projects/Armex/node_modules/mongoose/lib/model.js:3983:13)
+    at orderGoods (/home/iyc/Documents/Projects/Armex/functionality/order.js:27:20)
+    at app.post (/home/iyc/Documents/Projects/Armex/server.js:37:5)
+    at Layer.handle [as handle_request] (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/router/layer.js:95:5)
+    at /home/iyc/Documents/Projects/Armex/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/router/index.js:275:10)
+        message: 'Cast to Date failed for value ""2018-05-31T11:53:18.866Z"" at path "createdAt"',
+        name: 'CastError',
+        stringValue: '""2018-05-31T11:53:18.866Z""',
+        kind: 'Date',
+        value: '"2018-05-31T11:53:18.866Z"',
+        path: 'createdAt',
+        reason: [Object] } },
+  _message: 'Order validation failed',
+  name: 'ValidationError' }
+[2018-05-31T17:09:54.048] [DEBUG] log - RangeError: Invalid status code: 1000
+    at ServerResponse.writeHead (_http_server.js:194:11)
+    at ServerResponse._implicitHeader (_http_server.js:185:8)
+    at ServerResponse.end (_http_outgoing.js:754:10)
+    at ServerResponse.send (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/response.js:221:10)
+    at Order.find.then (/home/iyc/Documents/Projects/Armex/functionality/monthGraph.js:14:13)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+[2018-05-31T17:11:29.344] [DEBUG] log - RangeError: Invalid status code: 1000
+    at ServerResponse.writeHead (_http_server.js:194:11)
+    at ServerResponse._implicitHeader (_http_server.js:185:8)
+    at ServerResponse.end (_http_outgoing.js:754:10)
+    at ServerResponse.send (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/response.js:221:10)
+    at Order.find.then (/home/iyc/Documents/Projects/Armex/functionality/monthGraph.js:14:13)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+[2018-05-31T17:13:24.889] [DEBUG] log - RangeError: Invalid status code: 1000
+    at ServerResponse.writeHead (_http_server.js:194:11)
+    at ServerResponse._implicitHeader (_http_server.js:185:8)
+    at ServerResponse.end (_http_outgoing.js:754:10)
+    at ServerResponse.send (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/response.js:221:10)
+    at Order.find.then (/home/iyc/Documents/Projects/Armex/functionality/monthGraph.js:14:13)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+[2018-05-31T17:13:38.255] [DEBUG] log - RangeError: Invalid status code: 1100
+    at ServerResponse.writeHead (_http_server.js:194:11)
+    at ServerResponse._implicitHeader (_http_server.js:185:8)
+    at ServerResponse.end (_http_outgoing.js:754:10)
+    at ServerResponse.send (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/response.js:221:10)
+    at Order.find.then (/home/iyc/Documents/Projects/Armex/functionality/monthGraph.js:14:13)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+[2018-05-31T17:16:35.073] [DEBUG] log - Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.send (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/response.js:170:12)
+    at Order.find.then (/home/iyc/Documents/Projects/Armex/functionality/monthGraph.js:16:17)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+[2018-05-31T17:17:00.208] [DEBUG] log - Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.send (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/response.js:170:12)
+    at Order.find.then (/home/iyc/Documents/Projects/Armex/functionality/monthGraph.js:16:17)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+[2018-05-31T17:17:20.428] [DEBUG] log - Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.send (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/response.js:170:12)
+    at Order.find.then (/home/iyc/Documents/Projects/Armex/functionality/monthGraph.js:16:17)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+[2018-05-31T17:17:39.263] [DEBUG] log - Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.send (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/response.js:170:12)
+    at ServerResponse.json (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/response.js:267:15)
+    at ServerResponse.send (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/response.js:158:21)
+    at Order.find.then (/home/iyc/Documents/Projects/Armex/functionality/monthGraph.js:17:17)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+[2018-05-31T17:17:57.342] [DEBUG] log - ReferenceError: eres is not defined
+    at Order.find.then (/home/iyc/Documents/Projects/Armex/functionality/monthGraph.js:16:13)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+[2018-05-31T17:18:19.145] [DEBUG] log - Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.send (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/response.js:170:12)
+    at ServerResponse.json (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/response.js:267:15)
+    at ServerResponse.send (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/response.js:158:21)
+    at Order.find.then (/home/iyc/Documents/Projects/Armex/functionality/monthGraph.js:16:17)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+[2018-05-31T17:18:43.007] [DEBUG] log - Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.send (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/response.js:170:12)
+    at ServerResponse.json (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/response.js:267:15)
+    at ServerResponse.send (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/response.js:158:21)
+    at Order.find.then (/home/iyc/Documents/Projects/Armex/functionality/monthGraph.js:16:17)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+[2018-05-31T17:22:44.873] [DEBUG] log - Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.send (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/response.js:170:12)
+    at ServerResponse.json (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/response.js:267:15)
+    at ServerResponse.send (/home/iyc/Documents/Projects/Armex/node_modules/express/lib/response.js:158:21)
+    at Order.find.then (/home/iyc/Documents/Projects/Armex/functionality/monthGraph.js:15:17)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+[2018-05-31T17:23:42.930] [DEBUG] log - ReferenceError: i is not defined
+    at Order.find.then (/home/iyc/Documents/Projects/Armex/functionality/monthGraph.js:12:42)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)

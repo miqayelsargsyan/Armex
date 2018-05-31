@@ -11,6 +11,7 @@ const {logIn} = require('./functionality/logIn')
 const {signUp} = require('./functionality/signUp')
 const {logOut} = require('./functionality/logOut')
 const {authenticate} = require('./authenticate/authenticate')
+const {monthGraph} = require('./functionality/monthGraph')
 
 let port = process.env.PORT || 3000;
 let app = express();
@@ -28,10 +29,6 @@ app.post('/api/v1/login', (req, res) => {
     logIn(req, res)
 })
 
-app.get('/api/v1/logout', authenticate, (req, res) => {
-    logOut(req, res)
-})
-
 app.post('/api/v1/orderGoods', (req, res) => {
     orderGoods(req, res)
 })
@@ -44,8 +41,16 @@ app.get('/api/v1/getOrders/(&limit=:limit)?(&offset=:offset)?(&brand=:brand)?(&t
     getOrders(req, res)
 })
 
+app.get('/api/v1/orders/lastMonth', (req, res) => {
+    monthGraph(req, res)
+})
+
 app.get('/api/v1/getSales/limit=:limit?&offset=:offset?&brand=:brand?&type=:type?', (req, res) => {
         getSales(req, res)
+})
+
+app.get('/api/v1/logout', authenticate, (req, res) => {
+    logOut(req, res)
 })
 
 app.patch('/api/v1/changePopularity/:id', authenticate, (req, res) => {
