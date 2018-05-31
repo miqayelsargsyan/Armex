@@ -172,3 +172,78 @@
     at Order.find.then (/home/iyc/Documents/Projects/Armex/functionality/monthGraph.js:12:42)
     at <anonymous>
     at process._tickCallback (internal/process/next_tick.js:188:7)
+[2018-05-31T20:49:11.324] [DEBUG] log - TypeError: Cannot read property 'error' of undefined
+    at Admin.findByToken.then (F:\Work\Armex\authenticate\authenticate.js:14:31)
+    at <anonymous>
+    at runMicrotasksCallback (internal/process/next_tick.js:121:5)
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+    at process._tickCallback (internal/process/next_tick.js:180:9)
+[2018-05-31T20:50:56.562] [DEBUG] log - { ValidationError: Goods validation failed: createdAt: Cast to Date failed for value "May 31st 2018, 8:50:56 pm" at path "createdAt"
+    at ValidationError.inspect (F:\Work\Armex\node_modules\mongoose\lib\error\validation.js:56:24)
+    at formatValue (util.js:430:38)
+    at inspect (util.js:324:10)
+    at Object.format (util.js:191:12)
+    at Object.inspect (F:\Work\Armex\node_modules\log4js\lib\layouts.js:36:66)
+    at formatValue (util.js:430:38)
+    at inspect (util.js:324:10)
+    at Object.format (util.js:191:12)
+    at formatLogData (F:\Work\Armex\node_modules\log4js\lib\layouts.js:55:22)
+    at basicLayout (F:\Work\Armex\node_modules\log4js\lib\layouts.js:118:7)
+    at app (F:\Work\Armex\node_modules\log4js\lib\appenders\file.js:55:18)
+    at appenders.forEach (F:\Work\Armex\node_modules\log4js\lib\log4js.js:142:5)
+    at Array.forEach (<anonymous>)
+    at Logger.sendLogEventToAppender [as dispatch] (F:\Work\Armex\node_modules\log4js\lib\log4js.js:141:13)
+    at Logger._log (F:\Work\Armex\node_modules\log4js\lib\logger.js:95:12)
+    at Logger.(anonymous function) [as debug] (F:\Work\Armex\node_modules\log4js\lib\logger.js:127:14)
+  errors: 
+   { createdAt: 
+      { CastError: Cast to Date failed for value "May 31st 2018, 8:50:56 pm" at path "createdAt"
+    at new CastError (F:\Work\Armex\node_modules\mongoose\lib\error\cast.js:27:11)
+    at model.$set (F:\Work\Armex\node_modules\mongoose\lib\document.js:853:7)
+    at model._handleIndex (F:\Work\Armex\node_modules\mongoose\lib\document.js:674:14)
+    at model.$set (F:\Work\Armex\node_modules\mongoose\lib\document.js:635:22)
+    at model.Document (F:\Work\Armex\node_modules\mongoose\lib\document.js:111:12)
+    at model.Model (F:\Work\Armex\node_modules\mongoose\lib\model.js:63:12)
+    at new model (F:\Work\Armex\node_modules\mongoose\lib\model.js:3983:13)
+    at addGoods (F:\Work\Armex\functionality\addGoods.js:34:17)
+    at app.post (F:\Work\Armex\server.js:21:5)
+    at Layer.handle [as handle_request] (F:\Work\Armex\node_modules\express\lib\router\layer.js:95:5)
+    at next (F:\Work\Armex\node_modules\express\lib\router\route.js:137:13)
+    at Admin.findByToken.then (F:\Work\Armex\authenticate\authenticate.js:12:13)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+        message: 'Cast to Date failed for value "May 31st 2018, 8:50:56 pm" at path "createdAt"',
+        name: 'CastError',
+        stringValue: '"May 31st 2018, 8:50:56 pm"',
+        kind: 'Date',
+        value: 'May 31st 2018, 8:50:56 pm',
+        path: 'createdAt',
+        reason: [Object] } },
+  _message: 'Goods validation failed',
+  name: 'ValidationError' }
+[2018-05-31T21:46:06.515] [DEBUG] log - ReferenceError: onMonth is not defined
+    at orders.forEach (F:\Work\Armex\functionality\monthGraph.js:9:34)
+    at Array.forEach (<anonymous>)
+    at Order.find.then (F:\Work\Armex\functionality\monthGraph.js:8:16)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+[2018-05-31T22:03:36.538] [DEBUG] log - TypeError: createDate.month is not a function
+    at orders.forEach (F:\Work\Armex\functionality\monthGraph.js:11:36)
+    at Array.forEach (<anonymous>)
+    at Order.find.then (F:\Work\Armex\functionality\monthGraph.js:9:16)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+[2018-05-31T22:11:11.915] [DEBUG] log - ReferenceError: thisMonth is not defined
+    at orders.forEach (F:\Work\Armex\functionality\monthGraph.js:11:13)
+    at Array.forEach (<anonymous>)
+    at Order.find.then (F:\Work\Armex\functionality\monthGraph.js:9:16)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+[2018-05-31T22:32:47.194] [DEBUG] log - RangeError: Invalid status code: 0
+    at ServerResponse.writeHead (_http_server.js:190:11)
+    at ServerResponse._implicitHeader (_http_server.js:181:8)
+    at ServerResponse.end (_http_outgoing.js:757:10)
+    at ServerResponse.send (F:\Work\Armex\node_modules\express\lib\response.js:221:10)
+    at Order.find.then (F:\Work\Armex\functionality\monthGraph.js:21:13)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)

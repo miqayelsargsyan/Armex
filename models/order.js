@@ -23,7 +23,7 @@ let orderSchema = new mongoose.Schema({
    retail: {
        type: Number
    },
-   totalPirce: {
+   totalPrice: {
        type: Number  
    },
    createdAt:{

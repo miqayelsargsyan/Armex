@@ -1,17 +1,23 @@
 const {Order} = require('../models/order')
 const {logger} = require('../logger/logger')
+const moment = require('moment')
 
 let monthGraph = (req, res) => {
+    let now = moment();
+    let data = [];
     Order.find({status: 2}).then((orders) => {
-            let date = new Date();
-            let currentMonth = JSON.stringify('0' + (date.getUTCMonth() + 1));
-            if((date.getUTCMonth() + 1) > 9) {
-                currentMonth === JSON.stringify(date.getUTCMonth() + 1)
+        orders.forEach((order) => {
+            console.log(order.totalPrice)
+            let createDate = moment(order.createdAt);
+            if(now.year() == createDate.year() && now.month() == createDate.month()){
+                if(data[createDate.date() - 1]) {
+                    data[createDate.date() - 1] += order.totalPrice
+                } else {
+                    data[createDate.date() - 1] = order.totalPrice
+                }
             }
-            let ordersCreatedAt = orders[0].createdAt;
-            ordersCreatedAt = JSON.stringify(JSON.stringify(orders[0].createdAt).slice(6, 8));
-            orders = orders.filter(order => order.createdAt = currentMonth)
-            res.send(orders)
+        })
+        res.send(data);
     }).catch((e) => logger.debug(e))
 }
 
