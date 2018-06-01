@@ -247,3 +247,9 @@
     at Order.find.then (F:\Work\Armex\functionality\monthGraph.js:21:13)
     at <anonymous>
     at process._tickCallback (internal/process/next_tick.js:188:7)
+[2018-06-01T14:35:39.983] [DEBUG] log - ReferenceError: wholesale is not defined
+    at orders.forEach (/home/iyc/Documents/Projects/Armex/functionality/monthGraph.js:10:31)
+    at Array.forEach (<anonymous>)
+    at Order.find.then (/home/iyc/Documents/Projects/Armex/functionality/monthGraph.js:9:16)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)

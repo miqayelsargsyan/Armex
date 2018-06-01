@@ -1,32 +1,26 @@
 const mongoose = require('mongoose');
 
 let orderSchema = new mongoose.Schema({
-   items: [{
-       code: String,
-       count: Number
-   }],
-   user: {
-       phone: String,
-       name: String,
-       email: String,
-       address: String 
+    items: [{
+        code: String,
+        count: Number,
+        price: Number,
+        retail: Number,
+        wholesale: Number
+    }],
+    user: {
+        phone: String,
+        name: String,
+        email: String,
+        address: String 
    },
-   status: {
+    status: {
        type: Number
    },
-   price: {
-       type: Number
-   },
-   wholesale: {
-       type: Number
-   },
-   retail: {
-       type: Number
-   },
-   totalPrice: {
+    totalPrice: {
        type: Number  
    },
-   createdAt:{
+    createdAt:{
         type: Date
    }
 })

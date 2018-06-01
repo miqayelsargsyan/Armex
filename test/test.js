@@ -35,3 +35,29 @@ const pantsLog = log4js.getLogger('pants');
 pantsLog.debug('Something for pants');
 
 module.exports = {logger}
+
+// const {Order} = require('../models/order')
+// const {logger} = require('../logger/logger')
+// const moment = require('moment')
+
+// let monthGraph = (req, res) => {
+//     let now = moment();
+//     let data = [];
+//     Order.find({status: 2}).then((orders) => {
+//         orders.forEach((order) => {
+//             let soldPrice = order.items[0].wholesale || order.items[0].retail;
+//             let income = (soldPrice - order.items[0].price)* orders.length
+//             let createDate = moment(order.createdAt);
+//             if(now.year() == createDate.year() && now.month() == createDate.month()){
+//                 if(data[createDate.date() - 1]) {
+//                     data[createDate.date() - 1] += income
+//                 } else {
+//                     data[createDate.date() - 1] = income
+//                 }
+//             }
+//         })
+//         res.send(data);
+//     }).catch((e) => logger.debug(e))
+// }
+
+// module.exports = {monthGraph}
