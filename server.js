@@ -12,6 +12,7 @@ const {signUp} = require('./functionality/signUp')
 const {logOut} = require('./functionality/logOut')
 const {authenticate} = require('./authenticate/authenticate')
 const {monthGraph} = require('./functionality/monthGraph')
+const {yearGraph} = require('./functionality/yearGraph')
 
 let port = process.env.PORT || 3000;
 let app = express();
@@ -41,8 +42,12 @@ app.get('/api/v1/getOrders/(&limit=:limit)?(&offset=:offset)?(&brand=:brand)?(&t
     getOrders(req, res)
 })
 
-app.get('/api/v1/orders/lastMonth', (req, res) => {
+app.get('/api/v1/orders/thisMonth', (req, res) => {
     monthGraph(req, res)
+})
+
+app.get('/api/v1/orders/thisYear', (req, res) => {
+    yearGraph(req, res)
 })
 
 app.get('/api/v1/getSales/limit=:limit?&offset=:offset?&brand=:brand?&type=:type?', (req, res) => {
