@@ -21,7 +21,6 @@ let monthGraph = (req, res) => {
                 }
             }
         })
-        console.log(income)
         res.send(data);
     }).catch((e) => logger.debug(e))
 }

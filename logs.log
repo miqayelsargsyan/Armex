@@ -253,3 +253,9 @@
     at Order.find.then (/home/iyc/Documents/Projects/Armex/functionality/monthGraph.js:9:16)
     at <anonymous>
     at process._tickCallback (internal/process/next_tick.js:188:7)
+[2018-06-04T13:42:43.301] [DEBUG] log - ReferenceError: soldPirce is not defined
+    at orders.forEach (/home/iyc/Documents/Projects/Armex/functionality/monthGraph.js:16:25)
+    at Array.forEach (<anonymous>)
+    at Order.find.then (/home/iyc/Documents/Projects/Armex/functionality/monthGraph.js:12:16)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
