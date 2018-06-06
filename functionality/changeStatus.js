@@ -30,6 +30,7 @@ let cancelled = (req, res) => {
                     res.send(order)
                 })
         }).catch((e) => logger.log(e))
+}
 
 let returned = (req, res) => {
     let id = req.params.id
@@ -39,8 +40,6 @@ let returned = (req, res) => {
                     res.send(order)
                 })
         }).catch((e) => logger.log(e))
-}
-
 }
 
 module.exports = {inProcess, delivered, cancelled, returned}
