@@ -1,4 +1,4 @@
-let {Goods} = require('../models/goods')
+const {Goods} = require('../models/goods')
 const {logger} = require('../logger/logger')
 
 let getSales = (req, res) => {
