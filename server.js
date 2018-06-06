@@ -11,8 +11,8 @@ const {logIn} = require('./functionality/logIn')
 const {signUp} = require('./functionality/signUp')
 const {logOut} = require('./functionality/logOut')
 const {authenticate} = require('./authenticate/authenticate')
-const {monthGraph} = require('./functionality/monthGraph')
-const {yearGraph} = require('./functionality/yearGraph')
+const {monthGraph, yearGraph} = require('./functionality/graphs')
+const {inProcess, delivered, cancelled, returned} = require('./functionality/changeStatus')
 
 let port = process.env.PORT || 3000;
 let app = express();
@@ -60,6 +60,22 @@ app.get('/api/v1/logout', authenticate, (req, res) => {
 
 app.patch('/api/v1/changePopularity/:id', authenticate, (req, res) => {
     changePopularity(req, res)
+})
+
+app.patch('/api/v1/orders/inProcess', (req, res) => {
+    inProcess(req, res)
+})
+
+app.patch('/api/v1/orders/delivered', (req, res) => {
+    delivered(req, res)
+})
+
+app.patch('/api/v1/orders/cancelled', (req, res) => {
+    cancelled(req, res)
+})
+
+app.patch('/api/v1/orders/returned', (req, res) => {
+    returned(req, res)
 })
 
 app.listen(port, () => {
