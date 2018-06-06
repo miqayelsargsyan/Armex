@@ -1,7 +1,7 @@
 let mongoose = require('mongoose');
-
+let config = require('../config')
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://misha:mishana2101@ds135866.mlab.com:35866/armex');
+mongoose.connect(config.mongo_server);
 
 module.exports = {mongoose};
